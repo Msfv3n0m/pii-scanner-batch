@@ -7,9 +7,7 @@ rem ***scan folder for pii***
         IF %%f == *.txt OR IF %%f == *.csv (
             findstr /i "name credit ssn email birthday social" "%%f">NUL
             IF ERRORLEVEL 0 (
-                IF not %%f == NUL (
-                    echo %%f >> %~2
-                )
+                echo %%f >> %~2
             )
         )
     ) ELSE (
