@@ -22,3 +22,4 @@ set logFile="pii_locations.txt"
 call :scanFolder "Users", %logFile%
 call :scanFolder "inetpub", %logFile%
 call :scanFolder "xampp", %logFile%
+call :scanFolder "ProgramData", %logFile%
