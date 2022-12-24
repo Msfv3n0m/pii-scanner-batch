@@ -5,10 +5,7 @@ rem ***scan folder for pii***
 :scanFolder
     FOR /r %~1\ %%f IN (*.txt, *.csv, *.doc, *.docx, *.xlsx, *.xls) DO (
         IF %%f == *.txt OR IF %%f == *.csv (
-            findstr /i "fname lname credit ssn email birthday dob address" "%%f">NUL
-            IF ERRORLEVEL 0 (
-                echo %%f >> %~2
-            )
+            findstr /i "fname lname ssn email birthday dob address" "%%f">NUL && echo %%f >> %~2
         )
     ) ELSE (
         echo %%f >> %~2
